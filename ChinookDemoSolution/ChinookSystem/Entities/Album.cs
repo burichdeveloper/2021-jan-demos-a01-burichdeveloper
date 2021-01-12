@@ -48,5 +48,10 @@ namespace ChinookSystem.Entities
             set { _ReleaseLabel = string.IsNullOrEmpty(value) ? null : value; }
         }
 
+        public int Miliseconds { get; set; }
+
+        public int Bytes { get; set; }
+
+        public double UnitPrice { get; set; }
     }
 }

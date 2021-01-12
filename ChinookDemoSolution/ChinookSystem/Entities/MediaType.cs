@@ -11,6 +11,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ChinookSystem.Entities
 {
+    [Table("MediaTypes")]
     internal class MediaType
     {
         private string _Name;
