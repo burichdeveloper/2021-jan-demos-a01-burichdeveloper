@@ -12,7 +12,7 @@ using System.ComponentModel.DataAnnotations;
 namespace ChinookSystem.Entities
 {
     [Table("Tracks")]
-    internal class track
+    internal class Track
     {
         private string _Name;
         private string _Composer;
@@ -41,6 +41,17 @@ namespace ChinookSystem.Entities
             set { _Composer = string.IsNullOrEmpty(value) ? null : value; }
         }
 
+        public int Milliseconds { get; set; }
 
+        public int? Bytes { get; set; }
+
+        public decimal UnitPrice { get; set; }
+
+
+        //navigational properties
+        //child to parent (many to one)
+        public virtual Album Album { get; set; }
+        public virtual Genre Genre { get; set; }
+        public virtual MediaType MediaType { get; set; }
     }
 }

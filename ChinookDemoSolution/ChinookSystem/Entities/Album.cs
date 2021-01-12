@@ -53,5 +53,19 @@ namespace ChinookSystem.Entities
         public int Bytes { get; set; }
 
         public double UnitPrice { get; set; }
+
+
+        //you can still use [NotMapped} annotations
+
+        //navigational properties
+        //classinstancename.propertyname.fieldpropertyname
+
+        //many to 1 relationship 
+        //create the 1 end of the relationship in this entity
+        public virtual Artist Artist { get; set; }
+
+        //not valid UNTIL the Track entity is coded.
+        public virtual ICollection<Track> Tracks { get; set; }
+
     }
 }

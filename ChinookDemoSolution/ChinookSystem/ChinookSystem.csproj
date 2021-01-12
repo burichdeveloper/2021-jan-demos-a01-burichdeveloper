@@ -48,7 +48,7 @@
     <Compile Include="Entities\Artist.cs" />
     <Compile Include="Entities\Genre.cs" />
     <Compile Include="Entities\MediaType.cs" />
-    <Compile Include="Entities\track.cs" />
+    <Compile Include="Entities\Track.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
