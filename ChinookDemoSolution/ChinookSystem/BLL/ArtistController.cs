@@ -17,7 +17,7 @@ namespace ChinookSystem.BLL
     [DataObject]
     public class ArtistController
     {
-        [DataObjectMethod(DataObjectMethodType.Select,false]
+        [DataObjectMethod(DataObjectMethodType.Select,false)]
         public List<SelectionList> Artists_DDL_List()
         {
             using (var context = new ChinookSystemContext())

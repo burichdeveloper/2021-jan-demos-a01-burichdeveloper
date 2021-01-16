@@ -9,7 +9,9 @@ namespace ChinookSystem.ViewModels
     public class ArtistAlbums
     {
         public string Title { get; set; }
-        public int ReleaseYear { get; set; }
+        public int ReleasedYear { get; set; }
         public string ArtistName { get; set; }
+
+        public int ArtistId { get; set; }
     }
 }

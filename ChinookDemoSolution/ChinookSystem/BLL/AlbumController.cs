@@ -28,7 +28,7 @@ namespace ChinookSystem.BLL
                                                     select new ArtistAlbums
                                                     {
                                                         Title = x.Title,
-                                                        ReleaseYear = x.ReleaseYear,
+                                                        ReleasedYear = x.ReleaseYear,
                                                         ArtistName = x.Artist.Name
                                                     };
                 return results.ToList();
@@ -46,8 +46,9 @@ namespace ChinookSystem.BLL
                                                     select new ArtistAlbums
                                                     {
                                                         Title = x.Title,
-                                                        ReleaseYear = x.ReleaseYear,
-                                                        ArtistName = x.Artist.Name
+                                                        ReleasedYear = x.ReleaseYear,
+                                                        ArtistName = x.Artist.Name,
+                                                        ArtistId = x.ArtistId
                                                     };
                 return results.ToList();
             }
