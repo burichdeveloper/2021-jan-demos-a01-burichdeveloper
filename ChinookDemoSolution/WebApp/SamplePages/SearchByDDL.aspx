@@ -1,4 +1,7 @@
 ﻿<%@ Page Title="Filter Search Demo" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SearchByDDL.aspx.cs" Inherits="WebApp.SamplePages.SearchByDDL" %>
+
+<%@ Register Src="~/UserControls/MessageUserControl.ascx" TagPrefix="uc1" TagName="MessageUserControl" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h1>Search Albums by Artist</h1>
     <div class="row">
@@ -12,13 +15,13 @@
     <br />
     <div class="row">
         <div class="offset-3">
-            <asp:Label ID="MessageLabel" runat="server" ></asp:Label>
+            <uc1:messageusercontrol runat="server" id="MessageUserControl" />
         </div>
     </div>
     <br />
     <br />
     <div class="row">
-        <div class="offset-3 col-6">
+        <div class="offset-3">
             <asp:GridView ID="ArtistAlbumsList" runat="server" 
                 AutoGenerateColumns="False"
                 CssClass="table table-striped"
@@ -44,7 +47,7 @@
                              <asp:DropDownList ID="ArtistNameList" runat="server" 
                                  DataSourceID="ArtistNameListODS" 
                                  DataTextField="DisplayField" 
-                                 DataValueField="ValueField"
+                                 DataValueField="ValueField" Width="250"
                                  SelectedValue ='<%# Eval("ArtistId") %>'>
                              </asp:DropDownList>
                         </ItemTemplate>
@@ -54,11 +57,13 @@
                     No Albums for selected Artist
                 </EmptyDataTemplate>
             </asp:GridView>
+            
             <asp:ObjectDataSource ID="ArtistNameListODS" runat="server" 
                 OldValuesParameterFormatString="original_{0}" 
                 SelectMethod="Artists_DDL_List" 
                 TypeName="ChinookSystem.BLL.ArtistController">
             </asp:ObjectDataSource>
+
         </div>
     </div>
 

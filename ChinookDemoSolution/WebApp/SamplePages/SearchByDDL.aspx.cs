@@ -22,6 +22,14 @@ namespace WebApp.SamplePages
             }
         }
 
+        #region Error handling Methods for ODS
+        protected void SelectCheckForException(object sender, ObjectDataSourceStatusEventArgs e)
+        {
+            MessageUserControl.HandleDataBoundException(e);
+        }
+
+        #endregion
+
         protected void LoadArtistList()
         {
             ArtistController sysmgr = new ArtistController();
@@ -45,16 +53,19 @@ namespace WebApp.SamplePages
             if (ArtistList.SelectedIndex == 0)
             {
                 //am I on the first line (prompt line) of the DDL
-                MessageLabel.Text = "Select an atist for the search";
+                MessageUserControl.ShowInfo("Title", "Please make an artist selection");
                 ArtistAlbumsList.DataSource = null;
                 ArtistAlbumsList.DataBind();
             }
             else
             {
-                AlbumController sysmgr = new AlbumController();
-                List<ChinookSystem.ViewModels.ArtistAlbums> info = sysmgr.Albums_GetAlbumsForArtists(int.Parse(ArtistList.SelectedValue));
-                ArtistAlbumsList.DataSource = info;
-                ArtistAlbumsList.DataBind();
+                MessageUserControl.TryRun(()=>{
+                    AlbumController sysmgr = new AlbumController();
+                    List<ChinookSystem.ViewModels.ArtistAlbums> info = sysmgr.Albums_GetAlbumsForArtists(int.Parse(ArtistList.SelectedValue));
+                    ArtistAlbumsList.DataSource = info;
+                    ArtistAlbumsList.DataBind();
+                },"Success tittle", "Success message");
+                
             }
         }
     }
